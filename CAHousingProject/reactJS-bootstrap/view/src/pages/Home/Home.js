@@ -40,6 +40,8 @@ import { Container } from "react-bootstrap";
 //User-Alert Notification Code
 import AlertNotification from "./AlertNotification";
 
+import { dataLoaded } from "../../redux/actions/index";
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -75,6 +77,7 @@ class Home extends Component {
         resultsDataTabBtn: false,
         allDataTabBtn: false,
       });
+      this.props.dataLoaded(data)
     }, 1000);
   };
 
@@ -226,6 +229,14 @@ class Home extends Component {
                             <FontAwesomeIcon icon={faCalculator} /> <b>Half</b>
                           </h1>
                           <HalfDataTable housingData={this.state.data} />
+                          <h1>
+                            <FontAwesomeIcon icon={faCalculator} /> <b>Quarter</b>
+                          </h1>
+                          <QuarterDataTable housingData={this.state.data} />
+                          <h1>
+                            <FontAwesomeIcon icon={faCalculator} /> <b>Three Quarter</b>
+                          </h1>
+                          <ThreeQuarterDataTable housingData={this.state.data} />
                         </Col>
                       </Row>
                     </Tab>
@@ -270,4 +281,4 @@ const mapStateToProps = state => {
 };
 */
 
-export default connect(null)(Home);
+export default connect(null, { dataLoaded })(Home);

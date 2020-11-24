@@ -1,63 +1,50 @@
 ﻿//React-Bootstrap
-import React, { Component } from 'react';
-import { Row, Col,Table } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Row, Col, Table } from "react-bootstrap";
 //Redux Store Connector
 import { connect } from "react-redux";
 //Page Components
-import ThreeQuarterDataRecord from "./ThreeQuarterDataRecord/ThreeQuarterDataRecord";
+import { getThreeQuarterValues } from "../../../redux/selectors/housingData";
 
+export const QuarterDataTable = ({ threeeQuarterValues }) => {
+  return (
+    <Row>
+      <Col>
+        <Table striped bordered hover size="sm">
+          <thead>
+            <tr>
+              <th>Longitude</th>
+              <th>Latitude</th>
+              <th>Age</th>
+              <th>Rooms</th>
+              <th>Beds</th>
+              <th>Holds</th>
+              <th>Income</th>
+              <th>Value</th>
+              <th>Population</th>
+            </tr>
+          </thead>
+          <tbody>
+            {threeeQuarterValues ? (
+              <tr>
+                {Object.keys(threeeQuarterValues).map((key) => {
+                  return <td key={key}>{threeeQuarterValues[key]}</td>;
+                })}
+              </tr>
+            ) : (
+              <tr>
+                <td>No Records Found</td>
+              </tr>
+            )}
+          </tbody>
+        </Table>
+      </Col>
+    </Row>
+  );
+};
 
-class ThreeQuarterDataTable extends Component {
+const mapStateToProps = (state) => ({
+  threeeQuarterValues: getThreeQuarterValues(state),
+});
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            longitudeMin: 0,
-            latitudeMin: 0,
-            ageMin: 0,
-            roomsMin: 0,
-            bedsMin: 0,
-            holdsMin: 0,
-            incomeMin: 0,
-            valueMin: 0,
-            populationMin: 0,
-            OceanProxMin: null
-        }
-    }
-
-    render() {
-        const records = this.props.housingData;
-        //...
-        return (            
-            <Row>
-                <Col>
-                    <Table striped bordered hover size="sm" className="mt-5">
-                        <thead>
-                            <tr>
-                                <th>Longitude</th>
-                                <th>Latitude</th>
-                                <th>Age</th>
-                                <th>Rooms</th>
-                                <th>Beds</th>
-                                <th>Holds</th>
-                                <th>Income</th>
-                                <th>Value</th>
-                                <th>Population</th>
-                                <th>Ocean Prox</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {records && records.length
-                                ? records.map((record, index) => {
-                                    return <ThreeQuarterDataRecord key={record.id} record={record} />;
-                                }) : <tr><td>No Records Found</td></tr>
-                            }
-                        </tbody>
-                    </Table>
-                </Col>
-            </Row>            
-        )
-    }
-}
-
-export default connect(null)(ThreeQuarterDataTable);
+export default connect(mapStateToProps)(QuarterDataTable);
