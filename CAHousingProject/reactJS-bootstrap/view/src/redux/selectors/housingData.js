@@ -5,9 +5,9 @@ const getHousingData = (state) => state.housingData.items;
 
 export const getMinValues = createSelector(getHousingData, (items) => {
   if (!items || !items.length) return {};
-    const result = {};
-    numberFields(items[0]).forEach((k) => {        
-    const values = items.map((item) => item[k]);
+  const result = {};
+  numberFields(items[0]).forEach((k) => {
+    const values = items.map((item) => item[k]).filter((n) => !isNaN(n));
     result[k] = Math.min(...values);
   });
   return result;
@@ -18,7 +18,7 @@ export const getMaxValues = createSelector(getHousingData, (items) => {
 
   const result = {};
   numberFields(items[0]).forEach((k) => {
-    const values = items.map((item) => item[k]);
+    const values = items.map((item) => item[k]).filter((n) => !isNaN(n));
     result[k] = Math.max(...values);
   });
   return result;
@@ -33,7 +33,8 @@ export const getHalfValues = createSelector(getHousingData, (items) => {
       .map((item) => item[k])
       .sort(function (a, b) {
         return a - b;
-      });
+      })
+      .filter((n) => !isNaN(n));
     let median;
     if (values.length % 2 === 0) {
       let midPoint = values.length / 2;
@@ -57,7 +58,8 @@ export const getQuarterValues = createSelector(getHousingData, (items) => {
       .map((item) => item[k])
       .sort(function (a, b) {
         return a - b;
-      });
+      })
+      .filter((n) => !isNaN(n));
     const quarterPoint = parseInt(values.length / 4);
     let median;
 
@@ -81,7 +83,8 @@ export const getThreeQuarterValues = createSelector(getHousingData, (items) => {
       .map((item) => item[k])
       .sort(function (a, b) {
         return a - b;
-      });
+      })
+      .filter((n) => !isNaN(n));
     const threeQuarterPoint = parseInt((values.length * 3) / 4);
     let median;
 
