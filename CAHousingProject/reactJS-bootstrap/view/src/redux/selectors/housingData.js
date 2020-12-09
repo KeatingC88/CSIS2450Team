@@ -5,8 +5,8 @@ const getHousingData = (state) => state.housingData.items;
 
 export const getMinValues = createSelector(getHousingData, (items) => {
   if (!items || !items.length) return {};
-  const result = {};
-  numberFields(items[0]).forEach((k) => {
+    const result = {};
+    numberFields(items[0]).forEach((k) => {        
     const values = items.map((item) => item[k]);
     result[k] = Math.min(...values);
   });

@@ -1,5 +1,5 @@
 ﻿//React-Bootstrap
-import React, { Component } from "react";
+import React from "react";
 import { Row, Col, Table } from "react-bootstrap";
 //Redux Store Connector
 import { connect } from "react-redux";

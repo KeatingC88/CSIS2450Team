@@ -180,7 +180,7 @@ class Home extends Component {
                             <Button
                               variant="danger"
                               size="sm"
-                              className="mt-3 upload-button-danger"
+                              className="pt-2 upload-button-danger"
                               onClick={this.unloadCSVAlertNotification}
                             >
                               Unload CSV File

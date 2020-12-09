@@ -9,11 +9,6 @@ import HousingDataRecord from "./HousingDataRecord/HousingDataRecord";
 
 class HousingDataTable extends Component {
     
-    constructor(props) {
-        super(props);
-
-    }
-    
     render() {
         
         const records = this.props.housingData;
