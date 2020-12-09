@@ -30,7 +30,7 @@ class STDDataTable extends Component {
     ageSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].housing_median_age != "")
+                if (this.props.housingData[i].housing_median_age !== "")
                     this.state.ageSTD.push(parseFloat(this.props.housingData[i].housing_median_age));
             }
             return std(this.state.ageSTD, "uncorrected").toFixed(2);
@@ -41,7 +41,7 @@ class STDDataTable extends Component {
     bedsSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].total_bedrooms != "")
+                if (this.props.housingData[i].total_bedrooms !== "")
                     this.state.bedsSTD.push(parseFloat(this.props.housingData[i].total_bedrooms));
             }
             return std(this.state.bedsSTD, "uncorrected").toFixed(2);
@@ -52,7 +52,7 @@ class STDDataTable extends Component {
     holdsSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].households != "")
+                if (this.props.housingData[i].households !== "")
                     this.state.holdsSTD.push(parseFloat(this.props.housingData[i].households));
             }
             return std(this.state.holdsSTD, "uncorrected").toFixed(2);
@@ -63,7 +63,7 @@ class STDDataTable extends Component {
     incomeSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].median_income != "")
+                if (this.props.housingData[i].median_income !== "")
                     this.state.incomeSTD.push(parseFloat(this.props.housingData[i].median_income));
             }
             return std(this.state.incomeSTD, "uncorrected").toFixed(2);
@@ -74,7 +74,7 @@ class STDDataTable extends Component {
     latitudeSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].latitude != "")
+                if (this.props.housingData[i].latitude !== "")
                     this.state.latitudeSTD.push(parseFloat(this.props.housingData[i].latitude));
             }
             return std(this.state.latitudeSTD, "uncorrected").toFixed(2);
@@ -85,7 +85,7 @@ class STDDataTable extends Component {
     longitudeSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].longitude != "")
+                if (this.props.housingData[i].longitude !== "")
                     this.state.longitudeSTD.push(parseFloat(this.props.housingData[i].longitude));
             }
             return std(this.state.longitudeSTD, "uncorrected").toFixed(2);
@@ -96,7 +96,7 @@ class STDDataTable extends Component {
     populationSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].population != "")
+                if (this.props.housingData[i].population !== "")
                     this.state.populationSTD.push(parseFloat(this.props.housingData[i].population));
             }
             return std(this.state.populationSTD, "uncorrected").toFixed(2);
@@ -107,7 +107,7 @@ class STDDataTable extends Component {
     roomsSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].total_rooms != "")
+                if (this.props.housingData[i].total_rooms !== "")
                     this.state.roomsSTD.push(parseFloat(this.props.housingData[i].total_rooms));
             }
             return std(this.state.roomsSTD, "uncorrected").toFixed(2);
@@ -118,7 +118,7 @@ class STDDataTable extends Component {
     valueSTD = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].median_house_value != "")
+                if (this.props.housingData[i].median_house_value !== "")
                     this.state.valueSTD.push(parseFloat(this.props.housingData[i].median_house_value));
             }
             return std(this.state.valueSTD, "uncorrected").toFixed(2);

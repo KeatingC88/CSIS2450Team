@@ -40,7 +40,7 @@ class MeanDataTable extends Component {
     bedsMean = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].total_bedrooms != "") {
+                if (this.props.housingData[i].total_bedrooms !== "") {
                     this.state.bedsMean += parseFloat(this.props.housingData[i].total_bedrooms);
                 }
             }

@@ -4,11 +4,6 @@ import { Alert, Col } from 'react-bootstrap';
 
 class AlertNotification extends Component {
 
-    constructor(props) {
-        super(props);
-
-    }
-
     render = () => {
         return (
             <Col>

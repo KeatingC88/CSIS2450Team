@@ -2,8 +2,6 @@
 import React, { Component } from "react"; //React Lib
 import { BrowserRouter as Router, Route } from "react-router-dom"; //React's Router
 import { connect } from "react-redux"; //Redux Store Connection
-//Web Layout
-import { Container } from "react-bootstrap";
 //Web-App Pages
 import Home from "./pages/Home/Home";
 

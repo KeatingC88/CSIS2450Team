@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 //Page Components
 import CountDataRecord from "./CountDataRecord/CountDataRecord";
 
-
 class CountDataTable extends Component {
 
     constructor(props) {
@@ -38,7 +37,7 @@ class CountDataTable extends Component {
     bedsSum = () => {
         if (this.props.housingData != null) {
             for (var i = 0; i <= this.props.housingData.length - 1; i++) {
-                if (this.props.housingData[i].total_bedrooms == "") {
+                if (this.props.housingData[i].total_bedrooms === "") {
                     this.state.bedsTotal += 0.0
                 } else {
                     this.state.bedsTotal += parseFloat(this.props.housingData[i].total_bedrooms);
@@ -160,4 +159,8 @@ class CountDataTable extends Component {
     }
 }
 
-export default connect(null)(CountDataTable);
+const mapStateToProps = (state) => ({
+    //sumValues: getSumValues(state),
+});
+
+export default connect(mapStateToProps)(CountDataTable);
